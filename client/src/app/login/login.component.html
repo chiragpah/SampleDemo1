@@ -1,0 +1,22 @@
+<div class="modal">
+    <div class="modal-content">
+      <h2>Login</h2>
+      <span class="close" (click)="closeModal()">&times;</span>
+      <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+        <div class="form-header">
+        </div>
+        <div class="form-body">
+          <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="email" [(ngModel)]="loginData.email">
+          </div>
+          <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" [(ngModel)]="loginData.password">
+          </div>
+          <button type="submit">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
