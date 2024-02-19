@@ -1,0 +1,68 @@
+.vertical-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 10px;
+  /* Adjust padding for a more compact layout */
+  width: calc(100% - 40px);
+  /* Adjust the width as needed */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  background-color: #fff;
+  margin: 7px;
+
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .profile-pic {
+    width: 40px;
+    /* Adjust profile picture size */
+    height: 40px;
+    /* Adjust profile picture size */
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
+  .user-details {
+    flex-grow: 1;
+  }
+
+  .user-name {
+    font-size: 12px;
+    /* Adjust font size */
+    font-weight: bold;
+    margin-bottom: 3px;
+    /* Adjust margin for a more compact layout */
+  }
+
+  .button-container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .confirm-button,
+  .delete-button {
+    background-color: #1877f2;
+    /* Facebook theme color */
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    /* Rounded button */
+    padding: 8px 12px;
+    margin: auto;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .confirm-button:hover {
+    background-color: #1565c0;
+  }
+
+  .delete-button:hover {
+    background-color: #e57373;
+  }
+}

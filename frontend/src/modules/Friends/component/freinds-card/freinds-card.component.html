@@ -1,0 +1,15 @@
+<div class="user-card">
+    <div class="user-info">
+        <img *ngIf="profilePicUrl; else defaultPic" [src]="profilePicUrl" alt="Profile Picture" class="profile-pic">
+        <ng-template #defaultPic>
+            <img src="https://th.bing.com/th/id/OIP.x7X2oAehk5M9IvGwO_K0PgHaHa?rs=1&pid=ImgDetMain"
+                alt="Default Profile Picture" class="profile-pic">
+        </ng-template>
+        <div class="user-details">
+            <p class="user-name">{{ userName }}</p>
+        </div>
+    </div>
+    <button class="add-friend-button" (click)="sendFriendRequest()">
+        {{ friendRequestStatus ? 'Cancel Request' : '+ Add Friend' }}
+    </button>
+</div>

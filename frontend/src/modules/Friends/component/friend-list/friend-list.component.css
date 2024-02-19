@@ -1,0 +1,64 @@
+/* Add horizontal scrolling to the custom_list */
+.custom_list {
+  margin: 5px;
+  display: flex;
+  overflow-x: auto;
+  /* Enable horizontal scrolling */
+  white-space: nowrap;
+  /* Prevent items from wrapping to the next line */
+  padding: 10px;
+  /* Optional: add padding for better aesthetics */
+}
+
+/* Ensure each app-freinds-card has some space between them */
+app-freinds-card {
+  margin-right: 10px;
+  /* Adjust the margin as needed */
+}
+
+.pending_div {
+  margin: 10px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px;
+}
+
+.column {
+  box-sizing: border-box;
+  padding: 15px;
+  border: 1px solid #ddd;
+}
+
+/* Set fixed width for left and right columns */
+.column:nth-child(1),
+.column:nth-child(3) {
+  width: 20%;
+  /* Adjust width as needed */
+}
+
+/* Default styles for larger screens */
+@media screen and (min-width: 769px) {
+  .container {
+    justify-content: space-between;
+  }
+
+  /* Expand the left and right columns to full width on small screens */
+  .column:nth-child(1),
+  .column:nth-child(3) {
+    width: 20%;
+    /* Adjust width as needed */
+  }
+
+  /* Make the middle column scrollable */
+  .column:nth-child(2) {
+    width: 60%;
+    /* Adjust width as needed */
+    overflow-x: auto;
+    /* Enable horizontal scrolling */
+    white-space: nowrap;
+    /* Prevent items from wrapping to the next line */
+  }
+}

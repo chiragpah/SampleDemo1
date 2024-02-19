@@ -1,0 +1,9 @@
+<div class="friend-list-container">
+  <h3>My Friends</h3>
+  <div *ngFor="let user of users">
+    <ng-container *ngIf="user.id !== currentUser?.id">
+      <app-my-friend-card [user]="user" (cancelFriendClicked)="cancelFriend($event)" (profile)="profile($event)">
+      </app-my-friend-card>
+    </ng-container>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<!-- report.component.html -->
+<mat-card>
+    <mat-card-header>
+      <div mat-card-avatar class="profile-pic">
+        <img *ngIf="userData.profile_pic; else defaultProfilePic" [src]="userData.profile_pic" alt="User Photo">
+        <ng-template #defaultProfilePic>
+          <img src="https://th.bing.com/th/id/OIP.x7X2oAehk5M9IvGwO_K0PgHaHa?rs=1&pid=ImgDetMain"
+            alt="Default User Photo">
+        </ng-template>
+      </div>
+      <mat-card-title-group class="profile-name">
+        <mat-card-title>{{ userData.first_name }} {{ userData.last_name }}</mat-card-title>
+      </mat-card-title-group>
+    </mat-card-header>
+  
+    <mat-dialog-content>
+      <mat-form-field>
+        <mat-label>Select a reason that applies</mat-label>
+        <mat-select [(ngModel)]="selectedReason">
+          <mat-option *ngFor="let reportValue of report" [value]="reportValue.value">{{ reportValue.viewValue }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-dialog-content>
+  
+    <mat-dialog-actions>
+      <button mat-button (click)="onNoClick()">Cancel</button>
+      <button mat-button cdkFocusInitial [disabled]="!selectedReason" (click)="submitReport()">Submit</button>
+    </mat-dialog-actions>
+  </mat-card>
+  

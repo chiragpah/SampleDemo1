@@ -1,0 +1,56 @@
+<!-- header starts -->
+<div class="header">
+  <div class="header__left">
+    <img
+      src="../../../../assets/images/black.png"
+      alt="" />
+    <div class="header__input">
+      <span class="material-icons"> search </span>
+      <input type="text" placeholder="Search Profile" (input)="onSearch($event)" autocomplete="off" />
+      <div class="search-results" *ngIf="searchResults.length > 0">
+        <ul>
+          <li *ngFor="let result of searchResults" (click)="selectUser(result)">
+            {{ result.first_name + ' ' + result.last_name }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="header__middle">
+    <div class="header__option" [routerLink]="['/feed']" routerLinkActive="active">
+      <span class="material-icons"> home </span>
+    </div>
+    <div class="header__option">
+      <span class="material-icons"> flag </span>
+    </div>
+    <div class="header__option">
+      <span class="material-icons"> subscriptions </span>
+    </div>
+    <div class="header__option">
+      <span class="material-icons"> storefront </span>
+    </div>
+    <div class="header__option" [routerLink]="['/friends']" routerLinkActive="active">
+      <span class="material-icons"> supervised_user_circle </span>
+    </div>
+  </div>
+
+  <div class="header__right">
+    <div class="header__info" [routerLink]="['/profile']">
+      <div mat-card-avatar class="profile-pic">
+        <img *ngIf="userProfile.profile_pic; else defaultProfilePic" [src]="userProfile.profile_pic" alt="User Photo">
+        <ng-template #defaultProfilePic>
+          <img src="https://th.bing.com/th/id/OIP.x7X2oAehk5M9IvGwO_K0PgHaHa?rs=1&pid=ImgDetMain" alt="Default User Photo">
+        </ng-template>
+      </div>
+    </div>
+    <span class="material-icons" [matMenuTriggerFor]="menu"> expand_more </span>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="logout()" class="logout-button">
+        <span class="logout-text">Logout</span> <!-- Place text before the icon -->
+        <span class="material-icons logo-logout"> logout </span> <!-- Add logout icon -->
+      </button>
+    </mat-menu>
+  </div>
+</div>
+<!-- header ends -->

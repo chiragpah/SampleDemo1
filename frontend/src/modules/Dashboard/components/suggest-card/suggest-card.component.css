@@ -1,0 +1,55 @@
+.user-card {
+    display: flex;
+    flex-direction: row; /* Adjusted to column layout */
+    align-items: center; /* Center items horizontally */
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    /* justify-content: space-between; */
+    overflow: hidden;
+    padding: 10px; /* Adjusted padding */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    background-color: #fff;
+}
+
+.profile-pic {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover; /* Ensure the image fills the container */
+}
+
+.user-info {
+    display: flex; /* Adjusted to column layout */
+    align-items: center; /* Center items horizontally */
+    margin-bottom: 5px; /* Adjusted margin */
+}
+
+.add-friend-button {
+    background-color: #1877f2;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 7px;
+    padding: 8px 5px; /* Adjusted padding */
+    cursor: pointer;
+    width: fit-content;
+    transition: background-color 0.3s ease;
+}
+
+.add-friend-button:hover {
+    background-color: #1565c0;
+}
+
+.user-name {
+    font-weight: bold;
+    margin: 10px; /* Remove default margin */
+}
+.right{
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}

@@ -1,0 +1,20 @@
+<app-header></app-header>
+
+<div class="container">
+    <div class="column">
+        <app-profile-card></app-profile-card>
+    </div>
+    <div class="column">
+        <div *ngFor="let user of users">
+            <ng-container *ngIf="user.id !== currentUser?.id">
+                <app-freinds-card [userName]="user.first_name + ' ' + user.last_name" [profilePicUrl]="user.profile_pic"
+                    (friendRequestClicked)="toggleFriendRequest(user.id)"
+                    [friendRequestStatus]="friendRequestStatus[user.id]"></app-freinds-card>
+            </ng-container>
+        </div>
+    </div>
+    <div class="column">
+        <app-pending-request-list></app-pending-request-list>
+    </div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,13 @@
+<div class="container">
+    <h3>Friend Suggestions</h3>
+    <div *ngFor="let user of users.slice(-4)">
+        <ng-container *ngIf="user.id !== currentUser?.id">
+            <div class="suggest-card">
+                <suggest-card [userName]="user.first_name + ' ' + user.last_name" [profilePicUrl]="user.profile_pic"
+                    (friendRequestClicked)="toggleFriendRequest(user.id)"
+                    [friendRequestStatus]="friendRequestStatus[user.id]">
+                </suggest-card>
+            </div>
+        </ng-container>
+    </div>
+</div>

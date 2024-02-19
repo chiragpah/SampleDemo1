@@ -1,0 +1,89 @@
+<form class="user-details-form">
+  <h2 mat-dialog-title>Edit Profile</h2>
+  <button class="close-button" mat-icon-button (click)="closeForm()">
+    <mat-icon>close</mat-icon>
+  </button>
+
+  <div [formGroup]="editProfileForm">
+    <mat-form-field appearance="fill">
+      <mat-label>First Name</mat-label>
+      <input matInput formControlName="firstname">
+      <mat-error *ngIf="editProfileForm.get('firstname')?.errors?.['required'] ">First Name is required</mat-error>   
+     <mat-error *ngIf="editProfileForm.get('firstname')?.errors?.['invalidName']">Invalid First Name</mat-error>
+    </mat-form-field>
+  </div>
+
+  <!-- <div class="form-group">
+    <label for="lastName">Last Name:</label>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder="Enter your last name" [(ngModel)]="userProfile.last_name" name="lastName" required>
+    </mat-form-field>
+  </div> -->
+  <div [formGroup]="editProfileForm">
+    <mat-form-field>
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName="lastname">
+      <mat-error *ngIf="editProfileForm.get('lastname')?.errors?.['required'] ">Last Name is required</mat-error>   
+     <mat-error *ngIf="editProfileForm.get('lastname')?.errors?.['invalidName']">Invalid Last Name</mat-error>
+    </mat-form-field>
+  </div>
+
+  <div [formGroup]="editProfileForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Date of Birth</mat-label>
+      <input matInput [matDatepicker]="dobPicker" formControlName="dateOfBirth" [max]="maxDate">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="dobPicker"></mat-datepicker-toggle>
+      <mat-datepicker #dobPicker></mat-datepicker>
+    </mat-form-field>
+  </div>
+  
+
+  <div [formGroup]="editProfileForm">
+    <mat-form-field>
+      <mat-label>Phone</mat-label>
+    <input matInput formControlName="phone" id="phone" maxlength="10">
+    <mat-error *ngIf="editProfileForm.get('phone')?.errors?.['required'] && (editProfileForm.get('phone')?.dirty || editProfileForm.get('phone')?.touched)">Phone number is required</mat-error>
+    <mat-error *ngIf="editProfileForm.get('phone')?.errors?.['invalidPhoneNumber']&& (editProfileForm.get('phone')?.dirty|| editProfileForm.get('phone')?.touched)">Invalid phone number</mat-error>
+  </mat-form-field>
+  </div>
+
+  <div  [formGroup]="editProfileForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Gender</mat-label>
+      <mat-select formControlName="gender" id="gender">
+        <mat-option value="Male">Male</mat-option>
+        <mat-option value="Female">Female</mat-option>
+        <mat-option value="Other">Other</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-error *ngIf="editProfileForm.get('gender')?.hasError('required')&& (editProfileForm.get('gender')?.dirty || editProfileForm.get('gender')?.touched)">Gender is required</mat-error>
+  </div>
+
+  <div  [formGroup]="editProfileForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Location</mat-label>
+      <input matInput formControlName="location" id="location">
+      <mat-error *ngIf="editProfileForm.get('location')?.errors?.['required']&& (editProfileForm.get('location')?.dirty || editProfileForm.get('location')?.touched)">Location is required</mat-error>
+    </mat-form-field>
+  </div>
+
+
+  <div [formGroup]="editProfileForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Write about yourself</mat-label>
+      <textarea matInput placeholder="Ex. It makes me feel..." formControlName="bio" cols="13" rows="6"></textarea>
+    </mat-form-field>
+  </div>
+
+  <!-- <div [formGroup]="editProfileForm" class="upload-img">
+    <input type="file" (change)="onFileChange($event)" accept="image/*" style="display: none" #fileInput formControlName="profile_pic" />
+    <button *ngIf="!pictureUploaded" mat-raised-button color="primary" (click)="fileInput.click()">Upload Image</button>
+    <div *ngIf="pictureUploaded" class="upload-photo-ratio">
+      <img [src]="getObjectURL(selectedFile)" alt="Selected Photo" class="selected-photo" />
+    </div>
+  </div> -->
+
+  <button mat-raised-button color="primary" (click)="submitForm()" id="submit-btn">Submit</button>
+</form>

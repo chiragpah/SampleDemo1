@@ -1,0 +1,24 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FeedCardComponent } from './feed-card.component';
+
+
+
+describe('MyFriendCardComponent', () => {
+  let component: FeedCardComponent;
+  let fixture: ComponentFixture<FeedCardComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [FeedCardComponent]
+    })
+    .compileComponents();
+    
+    fixture = TestBed.createComponent(FeedCardComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

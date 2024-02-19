@@ -1,0 +1,25 @@
+<mat-card>
+  <mat-card-header>
+  
+  </mat-card-header>
+  <mat-dialog-content>
+    
+      <div>
+
+      <div  class="upload-img">
+        <input type="file" (change)="onFileChange($event)" accept="image/*" style="display: none" #fileInput formControlName="profile_pic" />
+        <button *ngIf="!pictureUploaded" mat-raised-button color="primary" (click)="fileInput.click()">Upload Image</button>
+        <div *ngIf="pictureUploaded" class="upload-photo-ratio">
+          <img [src]="getObjectURL(selectedFile)" alt="Selected Photo" class="selected-photo" />
+        </div>
+      </div>
+    
+    </div>
+
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button (click)="updateImage()" cdkFocusInitial >Post</button>
+  </mat-dialog-actions>
+</mat-card>
+

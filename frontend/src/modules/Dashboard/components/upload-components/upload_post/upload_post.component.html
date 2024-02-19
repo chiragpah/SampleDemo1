@@ -1,0 +1,39 @@
+<div class="feed">
+  <mat-card>
+    <div class="feed__inputContainer">
+      <mat-card-header>
+        <div mat-card-avatar class="profile-pic">
+          <img *ngIf="userData.profile_pic; else defaultProfilePic" [src]="userData.profile_pic" alt="User Photo">
+          <ng-template #defaultProfilePic>
+            <img src="https://th.bing.com/th/id/OIP.x7X2oAehk5M9IvGwO_K0PgHaHa?rs=1&pid=ImgDetMain"
+              alt="Default User Photo">
+          </ng-template>
+        </div>
+        <mat-card-title-group class="profile-name">
+          <mat-card-title>{{userData.first_name}} {{userData.last_name}}</mat-card-title>
+        </mat-card-title-group>
+      </mat-card-header>
+      <div class="feed__input">
+        <i class="material-icons">create</i>
+        <form (click)="openDialog('Article')">
+          <input type="text" placeholder="What's on your mind?" />
+        </form>
+      </div>
+      <br>
+      <div class="feed__inputOptions">
+        <div class="inputOption small" (click)="openDialog('photo')">
+          <i class="fas fa-camera" style="color: #70b5f9"></i>
+          <h4>Photo</h4>
+        </div>
+        <div class="inputOption small" (click)="openDialog('video')">
+          <i class="fas fa-video" style="color: #51317e"></i>
+          <h4>Video</h4>
+        </div>
+        <div class="inputOption small" (click)="openDialog('audio')">
+          <i class="fa-solid fa-microphone" style="color: #567e31;"></i>          
+          <h4>Audio</h4>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+</div>

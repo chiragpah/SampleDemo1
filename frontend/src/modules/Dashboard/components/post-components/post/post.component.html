@@ -1,0 +1,92 @@
+
+<div *ngFor="let post of posts" class="post-cont">
+  <div class="feed-card">
+    <div class="feed-card">
+      <mat-card class="card">
+        <mat-card-header>
+          <div mat-card-avatar class="profile-pic">
+            <img *ngIf="post.user.profile_pic; else defaultProfilePic" [src]="post.user.profile_pic" alt="User Photo">
+            <ng-template #defaultProfilePic>
+              <img src="https://th.bing.com/th/id/OIP.x7X2oAehk5M9IvGwO_K0PgHaHa?rs=1&pid=ImgDetMain"
+                alt="Default User Photo">
+            </ng-template>
+          </div>
+          <mat-card-title-group class="profile-name">
+            <mat-card-title>
+              {{post.user.first_name}} {{post.user.last_name}}
+            </mat-card-title>
+            <mat-card-subtitle>{{ post.date_time | date }}</mat-card-subtitle>
+            <mat-card-subtitle>{{ post.date_time | date: 'shortTime' }}</mat-card-subtitle>
+          </mat-card-title-group>
+        </mat-card-header>
+        <br>
+        <mat-card-content>
+          <p class="post-caption">{{ post.caption }}</p>
+        </mat-card-content>
+        <div *ngIf="post.media">
+          <div *ngIf="post.type === 'photo'">
+            <img class="post-image" *ngIf="post.media" mat-card-image [src]="post.media">
+          </div>
+          <div *ngIf="post.type === 'video'">
+            <video width="100%" height="auto" controls>
+              <source [src]="post.media" type="video/mp4">
+            </video>
+          </div>
+          <div *ngIf="post.type === 'audio'"  class="audio-div">
+            <audio controls class="full-width-audio">
+              <source [src]="post.media" type="audio/mp3" >
+            </audio>
+          </div>
+        </div>
+        
+
+        <mat-grid-list cols="3" rowHeight="60px">
+          <hr>
+          <mat-grid-tile>
+            <button mat-button (click)="likePost(post.post_id)" matTooltip="Like" class="button-post"
+              aria-label="Like button" [ngClass]="{'liked': post.likedByCurrentUser}">
+              {{ post.likes?.length }}
+              <mat-icon>thumb_up_alt</mat-icon>
+            </button>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <button mat-button matTooltip="Comment" class="button-post" aria-label="Comment"
+              (click)="loadComments(post.post_id)" (click)="toggleComments()">
+              <i class="material-icons comment-icon">comment</i>
+            </button>
+
+          </mat-grid-tile>
+
+
+          <mat-grid-tile>
+            <button mat-button matTooltip="Report" (click)="OpenReport(post.post_id)" class=" button-post"
+              aria-label="Report">
+              <i class="material-icons report-icon">report</i>
+            </button>
+          </mat-grid-tile>
+
+        </mat-grid-list>
+        <!-- comment component -->
+      <div class="showComment" hideToggle="true" *ngIf ='showComments'>
+        <ul>
+          <li *ngFor="let comment of temp; let i = index">
+          
+           <p>{{ tempUser[i]}} : by {{comment}} </p>
+          </li>
+        </ul>
+        
+        <mat-form-field >
+          <button id="commentInput" mat-button matTooltip="Comment" class="button-post" aria-label="Comment" (click)="addComment()">
+            <i class="material-icons comment-icon">send</i>  
+            <input  matInput placeholder="add your comment" [(ngModel)] = 'newComment'>
+            
+          </button>
+          
+        </mat-form-field>
+      </div>
+      </mat-card>
+
+
+    </div>
+  </div>

@@ -1,0 +1,27 @@
+<div class="sidebar">
+    <div class="sidebar__top">
+      <img src="https://img.freepik.com/free-vector/abstract-watercolor-pastel-background_87374-139.jpg?w=1380&t=st=1707747520~exp=1707748120~hmac=2f3dfe5a501e691ebf466674e447a9e6a2fd7f1d643e0a75fe79c2faeb678d39" alt="" />
+      <div mat-card-avatar class="profile-pic">
+        <img *ngIf="userData.profile_pic; else defaultProfilePic" [src]="userData.profile_pic" alt="User Photo">
+        <ng-template #defaultProfilePic>
+          <img src="https://th.bing.com/th/id/OIP.x7X2oAehk5M9IvGwO_K0PgHaHa?rs=1&pid=ImgDetMain" alt="Default User Photo">
+        </ng-template>
+      </div>
+      <h2>{{userData.first_name}} {{userData.last_name}}</h2>
+      <h4>Date of join: {{userData.date_joined | date}}</h4>
+      <h4>User Bio :{{ userData.bio }}</h4>
+    </div>
+
+  <div class="sidebar__stats">
+    <div class="sidebar__stat" (click)="navigateToFriendsPage()" >
+      
+      <p>Friends</p>
+      <p class="sidebar__statNumber">{{userData.friend_list?.length}}</p>
+  
+    </div>
+    <div class="sidebar__stat" (click)="navigateToPostsPage()">
+      <p>Number of Posts</p>
+      <p class="sidebar__statNumber">{{userData.posts?.length}}</p>
+    </div>
+  </div>
+</div>

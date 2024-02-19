@@ -1,0 +1,70 @@
+/* Ensure proper spacing and alignment */
+.container {
+  display: flex;
+  flex-direction: column;
+  background: #e7e6e6;
+  margin: 5px;
+}
+
+.left-column,
+.right-column {
+  padding: 10px;
+  display: flex;
+  position: sticky;
+  flex-direction: column;
+  align-items: center; /* Center vertically */
+  width: 100%;
+  margin-top: 14px;
+}
+
+.middle-column {
+  width: 100%;
+  padding: 20px;
+  overflow-y: auto;
+  box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+.feed-scrollable {
+  margin-bottom: 20px;
+}
+
+/* Hide scrollbar */
+.middle-column::-webkit-scrollbar,
+.left-column::-webkit-scrollbar,
+.right-column::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+/* Media query for small screens (phones) */
+@media screen and (min-width: 768px) {
+  .container {
+    flex-direction: row;
+    align-items: stretch; /* Stretch columns to fill the height */
+  }
+
+  .left-column {
+    width: 20%;
+    min-width: 200px; /* Set a minimum width for better responsiveness */
+  }
+
+  .middle-column {
+    width: 60%;
+    height: calc(100vh - 120px);
+    overflow-y: auto;
+    padding: 20px;
+    /* Add padding for spacing */
+  }
+
+  .right-column {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Align items to the right */
+  }
+
+  .right-column > * {
+    margin-bottom: 20px; /* Add margin between suggestion list and friend list */
+    width: 100%; /* Ensure items take full width */
+  }
+}

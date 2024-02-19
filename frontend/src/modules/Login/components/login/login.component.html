@@ -1,0 +1,38 @@
+<form [formGroup]="loginform" (ngSubmit)="onsubmit($event)">
+  <div class="login-container">
+    <mat-card class="details-image-container">
+      <div class="login-image-container">
+        <img src="../../../../assets/images/black.png" class="img-fluid" alt="login image" />
+      </div>
+      <div class="login-details-container">
+        <div class="header-text mb-4">
+          <h2>Login</h2>
+          <p>We are happy to have you back.</p>
+        </div>
+
+
+
+        <div class="input-group mb-3">
+          <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="username" id="username">
+          </mat-form-field>
+        </div>
+        <div class="input-group mb-5">
+          <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" formControlName="password" id="password">
+          </mat-form-field>
+        </div>
+        <div style = "color: red" *ngIf = "errormessage" class="error-message">
+          {{errormessage}}</div>
+        <div class="input-group mb-3">
+          <button  class="btn-submit" mat-raised-button color="primary" type="submit">Login</button>
+        </div>
+        <div class="row">
+          <small>Don't have an account? <a routerLink="/register">Register</a></small>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</form>

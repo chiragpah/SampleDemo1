@@ -1,0 +1,78 @@
+.login-container {
+  background-image: url('../../../../assets/images/79qS\ \(1\).gif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.details-image-container {
+  max-width: 800px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  opacity: 102%;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.login-image-container {
+  width: 400px; /* Set width to 200px */
+  height: 400px; /* Set height to 200px */
+  margin-right: 40px;
+}
+
+.login-details-container {
+  flex: 1;
+  padding: 2rem;
+}
+
+.header-text {
+  margin-bottom: 2rem;
+}
+
+.input-group {
+  margin-bottom: 1.5rem;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.btn-submit{
+  background-color: #007bff;
+}
+
+/* Media Query for smaller screens */
+@media only screen and (max-width: 768px) {
+  .details-image-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .login-image-container {
+    width: 200px; /* Set width to 200px */
+    height: 200px; /* Set height to 200px */
+    margin-right: 0;
+    margin-bottom: 20px; /* Add margin-bottom for spacing */
+  }
+
+  .row {
+    flex-direction: column;
+    align-items: center;
+  }
+}

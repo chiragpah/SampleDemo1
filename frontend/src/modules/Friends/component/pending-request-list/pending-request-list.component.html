@@ -1,0 +1,18 @@
+<div class="custom_list">
+  <div class="reload-container">
+    <button class="reload-button" (click)="reloadPendingRequests()">
+      <i class="fa fa-refresh"></i> <!-- Font Awesome reload icon -->
+    </button>
+  </div>
+  <ng-container *ngIf="pendingRequests && pendingRequests.length > 0; else noRequests">
+    <div *ngFor="let request of pendingRequests">
+      <app-pending-request-card [userName]="request.sender.first_name + ' ' + request.sender.last_name"
+        [profilePicUrl]="request.sender.profile_pic" (confirmRequestClicked)="approveFriendRequest(request.requestId)"
+        (deleteRequestClicked)="rejectFriendRequest(request.requestId)">
+      </app-pending-request-card>
+    </div>
+  </ng-container>
+  <ng-template #noRequests>
+    <p class="no-requests-message">No pending requests</p>
+  </ng-template>
+</div>

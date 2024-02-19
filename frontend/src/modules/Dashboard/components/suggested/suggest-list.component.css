@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* Increased spacing between list items */
+    justify-content: center;
+    background-color: #f9f9f9;
+    padding: 20px;
+    /* Increased padding for better spacing */
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.container h3 {
+    margin-bottom: 10px;
+    /* Adjusted margin bottom for the heading */
+    font-size: 1.2em;
+    color: #333;
+}
+
+/* Adjustments for suggest-card */
+h3{
+    font-weight: bolder;
+}

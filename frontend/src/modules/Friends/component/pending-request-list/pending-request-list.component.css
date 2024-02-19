@@ -1,0 +1,33 @@
+.no-requests-message {
+    font-size: 16px;
+    color: #888;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+.reload-container {
+    position: absolute;
+    top: 95px;
+    /* Adjust top position to avoid overlapping with the navigation */
+    right: 15px;
+    z-index: 1;
+    /* Ensure the button appears above other elements */
+}
+
+.reload-button {
+    background-color: #007bff;
+    /* Blue color */
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    /* Make the button circular */
+    padding: 12px;
+    /* Adjust padding for circular shape */
+    cursor: pointer;
+    outline: none;
+}
+
+.reload-button:hover {
+    background-color: #0056b3;
+    /* Darker blue on hover */
+}

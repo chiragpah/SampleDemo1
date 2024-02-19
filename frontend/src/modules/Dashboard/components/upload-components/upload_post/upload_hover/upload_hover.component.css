@@ -1,0 +1,73 @@
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    background-color: #ffffff;
+    border-radius: 50%;
+
+    img {
+      width: 100%;  
+      height: 100%; 
+      border-radius: 50%; 
+      object-fit: cover; 
+    }
+  }
+  .profile-name{
+      margin-left: 8px;
+  }
+/* styles.css */
+.upload-button{
+  background-color: rgba(18, 18, 221, 0.617);
+}
+.mat-card {
+  max-width: 400px; /* Set a maximum width for responsiveness */
+  width: 100%;
+  margin: 0 auto; 
+}
+
+.example-full-width {
+  width: 100%; 
+}
+
+.mat-dialog-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.mat-dialog-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 16px; 
+}
+
+
+.mat-dialog-actions button {
+  min-width: 80px;
+}
+
+.example-full-width textarea {
+  min-height: 80px; 
+  resize: vertical; 
+  overflow-y: auto; 
+}
+
+/* Add your styles here */
+mat-form-field {
+  width: 100%;
+}
+
+button {
+  margin-top: 10px;
+}
+
+.selected-photo{
+  width:300px;
+  height:300px;
+}
+
+.video-upload{
+  width: 400px;
+  height:200px;
+  align-items: center;
+
+}

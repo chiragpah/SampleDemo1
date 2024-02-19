@@ -1,0 +1,20 @@
+<div class="user-card">
+  <div class="user-info">
+    <div class="profile-pic" *ngIf="user.profile_pic; else defaultPic">
+      <img [src]="'http://127.0.0.1:8000'+user.profile_pic" alt="Profile Picture">
+    </div>
+    <ng-template #defaultPic>
+      <div class="profile-pic">
+        <img src="https://th.bing.com/th/id/OIP.x7X2oAehk5M9IvGwO_K0PgHaHa?rs=1&pid=ImgDetMain"
+          alt="Default Profile Picture">
+      </div>
+    </ng-template>
+    <div class="user-details">
+      <span class="user-name">{{ user.first_name + ' ' + user.last_name }}</span>
+    </div>
+  </div>
+  <div class="user-actions">
+    <button mat-button color="primary" class="view-profile-button" (click)="viewProfile()">View Profile</button>
+    <button mat-button color="primary" class="open-chats-button" (click)="openChats()">Chats</button>
+  </div>
+</div>

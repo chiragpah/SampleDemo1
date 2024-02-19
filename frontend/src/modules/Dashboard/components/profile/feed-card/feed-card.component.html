@@ -1,0 +1,59 @@
+<div  class="feed-card">
+  <mat-card class="card">
+    <mat-card-header>
+      <div mat-card-avatar class="profile-pic">
+        <img src="https://as1.ftcdn.net/v2/jpg/03/39/45/96/1000_F_339459697_XAFacNQmwnvJRqe1Fe9VOptPWMUxlZP8.jpg" alt="User Photo">
+      </div>
+      <mat-card-title-group class="profile-name">
+        <mat-card-title> post.user.username </mat-card-title>
+        <mat-card-subtitle> post.date_time | date </mat-card-subtitle>
+      </mat-card-title-group>
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+      
+       
+        <button mat-menu-item>
+          <mat-icon>delete</mat-icon>
+          <span>Delete Post</span>
+        </button>
+      </mat-menu>
+
+    </mat-card-header>
+    <mat-card-content>
+      <p class="post-caption">
+         post.caption 
+      </p>
+    </mat-card-content>
+    <!-- <img *ngIf="post.media" mat-card-image [src]="post.media" alt="Post Image"> -->
+    <img *ngIf="" mat-card-image [src]="" alt="Post Image">
+    <br>
+
+    <mat-grid-list cols="3" rowHeight="60px">
+      <hr>
+
+      <mat-grid-tile>
+        <button mat-button 
+        matTooltip="Like"
+        aria-label="Button that displays a tooltip when focused or hovered over">
+        <mat-icon>thumb_up_alt</mat-icon>
+        </button>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <button mat-button 
+        matTooltip="Comment"
+        aria-label="Button that displays a tooltip when focused or hovered over">
+        <mat-icon>comment</mat-icon>
+        </button>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <button mat-button 
+        matTooltip="report"
+        aria-label="Button that displays a tooltip when focused or hovered over">
+        <mat-icon>report</mat-icon>
+        </button>
+      </mat-grid-tile>  
+    </mat-grid-list>
+  </mat-card>
+</div>

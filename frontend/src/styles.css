@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+
+    /* Define the font family with fallbacks */
+    body {
+        font-family: "Segoe UI Historic", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    }
+
+    /* Define specific styles for different elements */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: "Segoe UI Historic", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    }
+
+    p {
+        font-family: "Segoe UI Historic", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    }
+
+    /* You can continue defining other elements with the same font stack */
+}

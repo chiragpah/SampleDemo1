@@ -1,0 +1,120 @@
+<app-header></app-header>
+
+<div class="body-div">
+  <div class="user-profile-container">
+    <mat-card class="user-details-conatiner">
+      <div class="profile-image-container">
+        <img mat-card-avatar
+          [src]="userProfile.profile_pic || 'https://th.bing.com/th/id/OIP.x7X2oAehk5M9IvGwO_K0PgHaHa?rs=1&pid=ImgDetMain'"
+          alt="User Image">
+      </div>
+      <div class="user-details">
+        <mat-card-title *ngIf="userProfile && userProfile.date_of_birth"> {{userProfile.first_name }}
+          {{userProfile.last_name}}, {{age}}yrs</mat-card-title>
+        <mat-card-subtitle *ngIf="userProfile && userProfile.location">Lives in: <span
+            class="text-bold">{{userProfile.location}}</span></mat-card-subtitle>
+       
+      </div>
+      <mat-card-content class="user-summary">
+        <p>
+          {{userProfile.bio}}
+        </p>
+      </mat-card-content>
+
+
+      <div>
+        <mat-card-subtitle *ngIf="userProfile && userProfile.date_joined">
+          <p>Date Joined: <span class="text-bold">{{ userProfile.date_joined | date:'d MMM yyyy' }}</span></p>
+        </mat-card-subtitle>
+      </div>
+      <div class="user-friends-conatiner">
+
+        <mat-card *ngIf="userProfile && userProfile.friend_list" class="post-card" 
+          >
+          <mat-icon>people</mat-icon>
+          <mat-card-subtitle>{{userProfile.friend_list.length}}</mat-card-subtitle>
+
+        </mat-card>
+
+        <mat-card *ngIf="userProfile && userProfile.posts" class="post-card" (click)="scrollToUserPosts()">
+          <mat-icon>camera_alt</mat-icon>
+          <mat-card-subtitle>{{userProfile.posts.length}}</mat-card-subtitle>
+
+        </mat-card>
+
+      </div>
+      <button class="remove-button" (click)="removeFriend()">
+        <p>Remove Friend</p>
+      </button>
+
+    </mat-card>
+  </div>
+
+  <hr>
+  <mat-card-title class="post-heading" #userPostsContainer> Posts</mat-card-title>
+  <div class="user-posts-container">
+
+    <div *ngFor="let post of userPost" class="feed-card  post-cont">
+      <mat-card class="card">
+        <mat-card-header>
+          <div mat-card-avatar class="profile-pic">
+            <img src="https://as1.ftcdn.net/v2/jpg/03/39/45/96/1000_F_339459697_XAFacNQmwnvJRqe1Fe9VOptPWMUxlZP8.jpg"
+              alt="User Photo">
+          </div>
+          <mat-card-title-group class="profile-name">
+            <mat-card-title> {{post.user.first_name}} {{post.user.last_name}}</mat-card-title>
+            <mat-card-subtitle> {{post.date_time | date }}</mat-card-subtitle>
+          </mat-card-title-group>
+          <!-- <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>more_vert</mat-icon>
+          </button> -->
+          
+
+        </mat-card-header>
+        <mat-card-content>
+          <p class="post-caption">
+            {{post.caption}}
+          </p>
+        </mat-card-content>
+        <div *ngIf="post.media" class="post-image-container">
+             
+          <img class="post-image" *ngIf="post.type === 'photo'" mat-card-image [src]="post.media">
+        
+      
+          <video  *ngIf="post.type === 'video'" controls>
+            <source [src]="post.media" type="video/mp4">
+
+          </video>
+
+          <audio  *ngIf="post.type === 'audio'" controls>
+            <source [src]="post.media" type="audio/mp3">
+
+          </audio>
+        
+      </div>
+
+        <mat-grid-list cols="3" rowHeight="60px">
+          <hr>
+          <mat-grid-tile>
+         
+            <button mat-button matTooltip="Like" class="button-post" aria-label="Like button">
+              {{ post.likes?.length }}
+              <mat-icon>thumb_up_alt</mat-icon>
+            </button>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <button mat-button matTooltip="Comment" class="button-post" aria-label="Comment">
+              <i class="material-icons comment-icon">comment</i>
+            </button>
+          </mat-grid-tile>
+
+        </mat-grid-list>
+      </mat-card>
+    </div>
+
+
+  </div>
+
+</div>
+
+<!-- <app-profile-card></app-profile-card> -->
