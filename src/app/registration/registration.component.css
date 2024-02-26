@@ -1,0 +1,97 @@
+:root {
+    --font-Poppins: "__Poppins_1562c7","__Poppins_Fallback_1562c7";
+  }
+.font{
+    font-family: var(--font-Poppins), sans-serif;
+}  
+.flex {
+    display: flex;
+  }
+  .w-full {
+    width: 100%;
+  }
+  .lobut{
+    width: 100%;
+  }
+  
+  .mt-5 {
+    margin-top: 1.25rem; /* You may need to adjust this value based on your design */
+  }
+  .button {
+    /* Add your button styles here */
+    /* Example styles */
+    background-color: #007bff;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #0056b3;
+  }
+  
+  .flex {
+      display: flex;
+    }
+    .w-full {
+      width: 100%;
+    }
+    .loginbtn{
+      width: 100%;
+    }
+    
+    .mt-5 {
+      margin-top: 1.25rem; /* You may need to adjust this value based on your design */
+    }
+ 
+  
+  .modal-content{
+    --tw-bg-opacity: 1;
+    background-color: rgb(15 23 42/var(--tw-bg-opacity));
+    color: white;
+    font-weight: bold;
+  }
+  .items-center {
+    align-items: center;
+  }
+  
+  .justify-center {
+    justify-content: center;
+  }
+  
+  .my-3 {
+    margin-top: 3px;
+    margin-bottom: 3px;
+  }
+  
+  .cursor-pointer {
+    cursor: pointer;
+  }
+  
+  .mr-2 {
+    margin-right: 2px;
+  }
+  
+  .ml-2 {
+    margin-left: 2px;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .pt-4 {
+    padding-top: 4px;
+  }
+  
+  .font-Poppins {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .text-blue {
+    color: #2190ff;
+  }
+  

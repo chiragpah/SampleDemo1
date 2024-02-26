@@ -1,0 +1,72 @@
+<!-- Button trigger modal -->
+
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Launch static backdrop modal
+  </button> -->
+  <!-- login-launch-button.component.html -->
+<button type="button" class="btn btn-primary" (click)="LaunchEvent()" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Launch Login Modal
+</button>
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" [ngClass]="{'show': showModal, 'fade': !showModal}"  [style.display]="showModal ? 'block' : 'none'" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Login With ELearning</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: rgb(110, 84, 84);"></button>
+        </div>
+       
+        <div class="modal-body">
+          <form [formGroup]="loginform">
+            <div class="mb-3 font">
+              <label for="exampleInputEmail1" class="form-label font-Poppins">Enter Your Email</label>
+              <input type="email"  formControlName="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <!-- <mat-error
+              *ngIf="loginform.get('email')?.errors?.['required']&& (f['email'].dirty || f['email'].touched)">Email
+              is required</mat-error> -->
+            <mat-error class=" font-Poppins"
+              *ngIf="loginform.get('email')?.errors?.['invalidEmail']&& (f['email'].dirty || f['email'].touched)">Invalid
+              Email Format</mat-error>
+             
+            </div>
+            <div class="mb-3 font">
+              <label for="exampleInputPassword1" class="form-label font-Poppins">Password</label>
+              <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1">
+              <mat-error class=" font-Poppins"
+              *ngIf="loginform.get('password')?.errors?.['required'] && (f['password'].dirty || f['password'].touched)">Password
+              is required</mat-error>
+            <mat-error
+              *ngIf="loginform.get('password')?.errors?.['invalidPassword'] && loginform.get('password')?.touched">Password
+              must contain at least 1 uppercase, 1 lowercase letter and 1 special character</mat-error>
+
+            </div>
+            <div class="w-full mt-5 lobut ">
+              <input type="submit" value="Login" class="button" style="width: 100%;" />
+            </div>
+            
+           
+            <div class="flex items-center justify-center my-3"><hr>
+              <img src="../../assets/google.png" alt="Google" class="cursor-pointer mr-2" onclick="signIn('google')" style="width: 30px; height: 30px;">
+            
+            </div>
+            
+            <h5 class="text-center pt-4 font-Poppins font" style="font-size: 14px;">
+              Not have any account?
+              <span class="text-blue pl-1 cursor-pointer loginbtn"  data-bs-toggle="modal" data-bs-target="#staticBackdrop" >  <a (click)="switchToSignup()"   >Sign-Up</a></span>
+            </h5>
+            
+          </form>
+        </div>
+    
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-secondary font" data-bs-dismiss="modal">Close</button> -->
+         
+        </div>
+      </div>
+    </div>
+  </div>

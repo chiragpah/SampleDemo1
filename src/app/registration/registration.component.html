@@ -1,0 +1,73 @@
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Launch signup
+  </button> -->
+  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" [ngClass]="{'show': showModal, 'fade': !showModal}"  [style.display]="showModal ? 'block' : 'none'" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Sign Up</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: rgb(110, 84, 84);"></button>
+        </div>
+       
+        <div class="modal-body">
+          <form [formGroup]="registrationform">
+            <div class="mb-3 font">
+                <label for="name" class="form-label font-Poppins">Name</label>
+                <input type="name"  formControlName="name" class="form-control" id="inputname" aria-describedby="nameHelp">
+               
+              <mat-error class=" font-Poppins"
+                *ngIf="registrationform.get('name')?.errors?.['invalidname']&& (f['name'].dirty || f['name'].touched)">
+                Max Length of Username is 5</mat-error>
+               
+              </div>
+            <div class="mb-3 font">
+              <label for="exampleInputEmail1" class="form-label font-Poppins">Email address</label>
+              <input type="email"  formControlName="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <!-- <mat-error
+              *ngIf="loginform.get('email')?.errors?.['required']&& (f['email'].dirty || f['email'].touched)">Email
+              is required</mat-error> -->
+            <mat-error class=" font-Poppins"
+              *ngIf="registrationform.get('email')?.errors?.['invalidEmail']&& (f['email'].dirty || f['email'].touched)">Invalid
+              Email Format</mat-error>
+             
+            </div>
+            <div class="mb-3 font">
+              <label for="exampleInputPassword1" class="form-label font-Poppins">Password</label>
+              <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1">
+              <mat-error class=" font-Poppins"
+              *ngIf="registrationform.get('password')?.errors?.['required'] && (f['password'].dirty || f['password'].touched)">Password
+              is required</mat-error>
+            <mat-error
+              *ngIf="registrationform.get('password')?.errors?.['invalidPassword'] && registrationform.get('password')?.touched">Password
+              must contain at least 1 uppercase, 1 lowercase letter and 1 special character</mat-error>
+
+            </div>
+            <div class="w-full mt-5 lobut">
+              <input type="submit" value="Sign Up" style="width: 100%;" class="button" />
+            </div>
+            
+           
+            <div class="flex items-center justify-center my-3"><hr>
+              <img src="../../assets/google.png" alt="Google" class="cursor-pointer mr-2" onclick="signIn()" style="width: 30px; height: 30px;">
+           &nbsp; &nbsp;  <span style="font-size:14px"> SignIn with Google</span> 
+            
+            </div>
+            <h5 class="text-center pt-4 font-Poppins font" style="font-size: 14px;">
+              Already have an account?
+              <span class="text-blue pl-1 cursor-pointer"  >  <a  (click)="switchToLogin()">Login</a></span>
+            </h5>
+            
+          </form>
+        </div>
+    
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-secondary font" data-bs-dismiss="modal">Close</button>
+         
+        </div> -->
+      </div>
+    </div>
+  </div>
