@@ -5,6 +5,9 @@
 .font{
     font-family: var(--font-Poppins), sans-serif;
 }  
+.flex {
+  display: flex;
+}
 .w-full {
   width: 100%;
 }

@@ -5,6 +5,6 @@
   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
     Launch signup
   </button> -->
-<app-login  (launchLogin)="launchLoginModal()"  (switchToSignupClicked)="toggleSignupModal(true)"  [showModal]="loginModalVisible" ></app-login>
+<app-login  (launchLogin)="launchLoginModal()"  (switchToSignupClicked)="toggleSignupModal(true)"  [showModal]="signupModalVisible" ></app-login>
 <!-- <router-outlet></router-outlet> -->
-<app-registration [showModal]="signupModalVisible"  (switchToLoginClicked)="toggleLoginModal(true)"></app-registration>
+<app-registration [showModal]="signupModalVisible"  (switchToLoginClicked)="toggleLoginModal(true)"[showModal]="loginModalVisible"></app-registration>
